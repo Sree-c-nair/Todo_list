@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/taskdetailstyle.css' %}">
+    <title>Task Details</title>
+</head>
+<body>
+<div class="container">
+        <a href="{% url 'home' %}" class="logo">Todo</a>
+</div>
+
+<center>
+    <h1>TASK DETAILS</h1>
+<form method="post" action="" class="myform">
+
+<h1 class="myh">{{tasks.title}}
+    </h1>
+    <center><span class="badge {% if tasks.completed %}badge-completed{% else %}badge-pending{% endif %}">
+        {% if tasks.completed %}Completed{% else %}Pending{% endif %}
+    </span>
+</center>
+    <br><br>
+<a href ="{% url 'task1' %}">Go Back</a>
+
+</form>
+    </center>
+<footer class="footer">
+    <div class="container">
+        <p>@ copyright {% now "Y" %} by <a href="#">TodoApp</a> </p>
+    </div>
+</footer>
+</body>
+</html>

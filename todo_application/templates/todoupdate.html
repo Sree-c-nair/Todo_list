@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Update</title>
+</head>
+<body>
+<h1>TASK UPDATE</h1>
+<div class="container">
+        <a href="{% url 'home' %}" class="logo">Todo</a>
+</div>
+
+<form method="post" action="">
+    {% csrf token %}
+    {{form.as_p}}
+    <input type="submit" value="Save">
+</form>
+
+</body>
+</html>

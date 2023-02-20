@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/taskcreatestyle.css' %}">
+    <title>Task Create</title>
+</head>
+<body>
+<div class="container">
+        <a href="{% url 'home' %}" class="logo">Todo</a>
+</div>
+<center>
+
+<h1> TASK CREATE </h1></center>
+<div>
+<form method="post" class="myform" action="">
+
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Submit" >
+    <center><a href ="{% url 'task1' %}">Go Back</a></center>
+
+</form>
+</div>
+<footer class="footer">
+    <div class="container">
+        <p>@ copyright {% now "Y" %} by <a href="#">TodoApp</a> </p>
+    </div>
+</footer>
+</body>
+</html>

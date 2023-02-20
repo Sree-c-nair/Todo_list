@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <meta content="IE-edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, intial-scale=1.0" name="viewport">
+    <link rel="stylesheet" href="{% static 'css/homestyle.css' %}">
+    <title>todo</title>
+  <script src="https://kit.fontawesome.com/7515bfdbf7.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+{% block content %}
+<section class="feature">
+    <div class="feature-content">
+        <h1>To-Do-List</h1>
+        <p>“Rename your “To-Do” list to your “Opportunities” list. Each day is a treasure chest filled with limitless opportunities;
+            take joy in checking many off your list...!</p>
+        <a class="btn btn-primary cta" href="{% url 'Register' %}"> Get Started</a>
+    </div>
+    <img src="{%static 'imagestatic/images.png' %}" alt="" class="feature-image">
+</section>
+{% endblock content %}
+
+</body>
+</html>

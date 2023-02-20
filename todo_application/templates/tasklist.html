@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/taskliststyle.css' %}">
+    <script src="https://kit.fontawesome.com/7515bfdbf7.js" crossorigin="anonymous"></script>
+    <title>Task Lists</title>
+</head>
+<body>
+<div class="container">
+        <a  href="{% url 'home' %}" class="logo">Todo</a>
+</div>
+<form>
+    {% if request.user.is_authenticated %}
+    <p class="mytag">{{request.user}}</p>
+        <a href="{% url 'login' %}">Logout</a>
+    {% else %}
+    {% endif %}
+
+<center>
+<h1>My To Do Lists</h1></center>
+<div style="overflow-x: auto;">
+<table id="customers">
+
+    <tr>
+        <th>TASKS</th><th>DESCRIPTION</th><th>COMPLETED</th><th>TIME</th><th>UPDATE</th>&nbsp &nbsp<th>DELETE</th><th>VIEW</th>
+    </tr>
+    {% for tasks in task1 %}
+    <tr>
+        <td>{{tasks.title}}</td>
+        <td>{{tasks.Description}}</td>
+        <td>{{tasks.completed}}</td>
+        <td>{{tasks.created}}</td>
+        <td><a href="{% url 'task-update' tasks.id %}"><i class="fa-regular fa-pen-to-square"></i></a> </td>
+        <td><a href="{% url 'task-delete' tasks.id %}"><i class="fa-solid fa-trash-can" ></i></a></td>
+        <td><a href="{% url 'task-detail' tasks.id %}"><i class="fa-regular fa-eye"></i></a></td>
+
+        </td>
+    </tr>
+    {% endfor %}
+    <center><a href="{% url 'task-create' %}" target="_blank">Add Task</a></center>
+    <br><br>
+</table>
+    </div>
+<div>
+    {%  if tasks.completed == True %}
+            <strike> {{tasks}} </strike>
+        {% else %}
+            <span>{{tasks}}</span>
+        {% endif %}
+</div>
+</form>
+<footer class="footer">
+    <div class="container">
+        <p>@ copyright {% now "Y" %} by <a class="ab" href="#">TodoApp</a> </p>
+    </div>
+</footer>
+</body>
+</html>

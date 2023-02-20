@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/registerstyle.css' %}">
+    <title>Registration</title>
+</head>
+<body>
+<div class="container">
+        <a href="{% url 'home' %}" class="logo">Todo</a>
+</div>
+
+<center><h1>REGISTRATION</h1></center>
+<form method="post" action="" class="myform">
+    <div>
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Register">
+<!--   <button type="submit" class="btn">Register</button>-->
+    <center><p class="mytag">If you already have an account,<a href="{% url 'login' %}"> Login</a> </p></center>
+</div>
+</form>
+<footer class="footer">
+    <div class="container">
+        <p>@ copyright {% now "Y" %} by <a href="#">TodoApp</a> </p>
+    </div>
+</footer>
+</body>
+</html>
